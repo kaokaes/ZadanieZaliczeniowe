@@ -78,4 +78,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Znaki specjalne" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generuj hasło"
+        android:backgroundTint="#4682B4"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zatwierdź"
+        android:backgroundTint="#4682B4"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
