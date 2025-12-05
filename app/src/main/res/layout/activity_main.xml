@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dane pracownika"
-        android:textSize="18sp" />
+        android:textSize="17sp" />
 
     <EditText
         android:id="@+id/etFirstName"
