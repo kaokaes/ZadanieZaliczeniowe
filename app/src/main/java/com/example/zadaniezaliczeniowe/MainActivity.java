@@ -85,9 +85,33 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < passwordLenght; i++) {
-
+            sb.append(letters.charAt(r.nextInt(letters.length())));
 
         }
+        if (cbUpperLower.isChecked()) {
+            int index = r.nextInt(passwordLenght);
+            char c = sb.charAt(index);
+            sb.setCharAt(index, Character.toUpperCase(c));
+        }
+
+        if (cbDigits.isChecked() && passwordLenght > 0) {
+            int index = 0;
+            char digit = digits.charAt(r.nextInt(digits.length()));
+            sb.setCharAt(index, digit);
+        }
+
+        if (cbSpecial.isChecked() && passwordLenght > 1) {
+            int index = 1;
+            char special = specialChars.charAt(r.nextInt(specialChars.length()));
+            sb.setCharAt(index, special);
+        }
+
+        generatedPassword = sb.toString();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(generatedPassword);
+        builder.setPositiveButton("OK", null);
+        builder.show();
+
 
     }
 
