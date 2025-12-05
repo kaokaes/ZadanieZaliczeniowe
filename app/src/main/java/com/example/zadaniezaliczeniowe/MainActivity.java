@@ -1,6 +1,7 @@
 package com.example.zadaniezaliczeniowe;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -8,10 +9,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,5 +60,50 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPosition.setAdapter(adapter);
 
+
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generatePassword();
+            }
+        });
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSummary();
+            }
+        });
+    }
+
+    private void generatePassword(){
+        int passwordLenght = Integer.parseInt(etPasswordLength.getText().toString());
+        String letters = "abcdefghijklmnopqrstuvwxyz";
+        String digits = "0123456789";
+        String specialChars = "!@#$%^&*()_+-=";
+        Random r = new Random();
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < passwordLenght; i++) {
+
+
+        }
+
+    }
+
+    private void showSummary(){
+        String firstName = etFirstName.getText().toString();
+        String lastName = etLastName.getText().toString();
+        String position = spinnerPosition.getSelectedItem().toString();
+
+        String message = "Imię: " + firstName + "\n" +"Nazwisko: " + lastName + "\n" + "Stanowisko: " + position + "\n" + "Hasło: " + generatedPassword;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton("OK", null);
+        builder.show();
     }
 }
+
+
+
